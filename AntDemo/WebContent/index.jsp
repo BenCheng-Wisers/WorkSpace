@@ -10,6 +10,8 @@
 	
 	test
 	
+	index page master1 master2123
+	
 	what this is 
 	</CENTER>
 </BODY>
