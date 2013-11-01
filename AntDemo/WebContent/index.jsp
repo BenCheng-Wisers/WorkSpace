@@ -6,6 +6,6 @@
 </head>
 <BODY>
 	<CENTER>
-	index page test
+	index page
 	</CENTER>
 </BODY>
