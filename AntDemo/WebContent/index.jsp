@@ -13,5 +13,10 @@
 	index page master1 master2123
 	
 	123
-	what this is 	</CENTER>
+	what this is 	
+	
+
+	all is mine
+	
+	</CENTER>
 </BODY>
