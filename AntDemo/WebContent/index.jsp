@@ -6,6 +6,6 @@
 </head>
 <BODY>
 	<CENTER>
-	index page
+	index page develop2
 	</CENTER>
 </BODY>
