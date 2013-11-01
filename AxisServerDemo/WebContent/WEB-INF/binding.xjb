@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" version="2.1"
+      xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <bindings schemaLocation="All.xsd" node="/xs:schema">
+    <schemaBindings>
+      <package name="com.wisers.jaxb.test">
+      	<javadoc><![CDATA[<body>Package level documentation for generated package primer.myPo.</body>]]></javadoc>
+      </package>
+      <nameXmlTransform>
+        <elementName suffix="Element"/>
+      </nameXmlTransform>
+    </schemaBindings>
+    <!--
+    <bindings node="//xs:element[@name='person']">
+    	<class name="Persons">
+    		<javadoc>A &lt;b>Purchase Order&lt;/b> Article.</javadoc>
+    	</class>
+    </bindings>
+    -->
+  </bindings>
+</bindings>

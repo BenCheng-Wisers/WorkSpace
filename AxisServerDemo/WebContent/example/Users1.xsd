@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--W3C Schema 由 XMLSpy v2006 U 创建 (http://www.altova.com)-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jxb="http://java.sun.com/xml/ns/jaxb" jxb:version="1.0" elementFormDefault="qualified">
+	<xs:element name="id">
+		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:enumeration value="1"/>
+				<xs:enumeration value="2"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="address" type="addressType"/>
+	<xs:element name="name" type="nameType"/>
+	<!-- <xs:element name="name">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="test1"/>
+				<xs:enumeration value="test2"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element> -->
+	<xs:element name="userList">
+		<xs:annotation>
+		    <xs:appinfo>
+		      <jxb:class name="User">
+		        <jxb:javadoc>
+		        </jxb:javadoc>
+		      </jxb:class>
+		    </xs:appinfo>
+		 </xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="id"/>
+				<xs:element ref="name"/>
+				<xs:element ref="address"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="users">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="userList" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="orderDate" type="xs:date"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="nameType">
+	  <xs:restriction base="xs:string">
+	    <xs:pattern value="/d{3}-[A-Z]{2}"/>
+	  </xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="addressType">
+		<xs:sequence>
+			<xs:element name="city" type="xs:string"/>
+			<xs:element name="num" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

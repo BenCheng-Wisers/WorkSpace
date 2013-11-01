@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+ <globalConfiguration>
+  <parameter name="sendMultiRefs" value="true"/>
+  <parameter name="disablePrettyXML" value="true"/>
+  <parameter name="adminPassword" value="admin"/>
+  <parameter name="attachments.Directory" value="F:\workspace\AxisServerDemo\WebContent\WEB-INF\attachments"/>
+  <parameter name="dotNetSoapEncFix" value="true"/>
+  <parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <parameter name="sendXMLDeclaration" value="true"/>
+  <parameter name="sendXsiTypes" value="true"/>
+  <parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <requestFlow>
+   <handler type="java:org.apache.axis.handlers.JWSHandler">
+    <parameter name="scope" value="session"/>
+   </handler>
+   <handler type="java:org.apache.axis.handlers.JWSHandler">
+    <parameter name="scope" value="request"/>
+    <parameter name="extension" value=".jwr"/>
+   </handler>
+  </requestFlow>
+ </globalConfiguration>
+ <handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <service name="Customer" provider="java:RPC" style="wrapped" use="literal">
+  <operation name="callWaiter" qname="ns1:callWaiter" returnQName="ns1:callWaiterReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://server.wisers.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <parameter qname="ns1:name" type="xsd:string"/>
+  </operation>
+  <operation name="cussWaiter" qname="ns2:cussWaiter" returnQName="ns2:cussWaiterReturn" returnType="xsd:string" soapAction="" xmlns:ns2="http://server.wisers.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <parameter qname="ns2:name" type="xsd:string"/>
+  </operation>
+  <parameter name="sendMultiRefs" value="false"/>
+  <parameter name="wsdlServicePort" value="Customer"/>
+  <parameter name="schemaQualified" value="http://server.wisers.com"/>
+  <parameter name="className" value="com.wisers.server.Customer"/>
+  <parameter name="typeMappingVersion" value="1.2"/>
+  <parameter name="allowedMethods" value="cussWaiter callWaiter"/>
+  <parameter name="wsdlTargetNamespace" value="http://server.wisers.com"/>
+  <parameter name="wsdlServiceElement" value="CustomerService"/>
+  <parameter name="wsdlPortType" value="Customer"/>
+  <parameter name="sendXsiTypes" value="false"/>
+ </service>
+ <service name="Waiter" provider="java:RPC" style="wrapped" use="literal">
+  <operation name="sayHello" qname="ns3:sayHello" returnQName="ns3:sayHelloReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://server.wisers.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <parameter qname="ns3:name" type="xsd:string"/>
+  </operation>
+  <operation name="sayNo" qname="ns4:sayNo" returnQName="ns4:sayNoReturn" returnType="xsd:string" soapAction="" xmlns:ns4="http://server.wisers.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <parameter qname="ns4:name" type="xsd:string"/>
+  </operation>
+  <operation name="eat" qname="ns5:eat" soapAction="" xmlns:ns5="http://server.wisers.com">
+   <parameter qname="ns5:food" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </operation>
+  <parameter name="sendMultiRefs" value="false"/>
+  <parameter name="wsdlServicePort" value="Waiter"/>
+  <parameter name="schemaQualified" value="http://server.wisers.com"/>
+  <parameter name="className" value="com.wisers.server.Waiter"/>
+  <parameter name="typeMappingVersion" value="1.2"/>
+  <parameter name="allowedMethods" value="eat sayHello sayNo"/>
+  <parameter name="wsdlTargetNamespace" value="http://server.wisers.com"/>
+  <parameter name="wsdlServiceElement" value="WaiterService"/>
+  <parameter name="wsdlPortType" value="Waiter"/>
+  <parameter name="sendXsiTypes" value="false"/>
+ </service>
+ <service name="TestService" provider="java:RPC">
+  <requestFlow>
+   <handler type="java:samples.attachments.handler.TestHandler"/>
+  </requestFlow>
+  <parameter name="allowedMethods" value="test"/>
+  <parameter name="className" value="samples.attachments.Test"/>
+ </service>
+ <service name="AdminService" provider="java:MSG">
+  <parameter name="allowedMethods" value="AdminService"/>
+  <parameter name="enableRemoteAdmin" value="false"/>
+  <parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <namespace>http://xml.apache.org/axis/wsdd/</namespace>
+ </service>
+ <service name="EchoAttachmentsService" provider="java:RPC">
+  <operation name="echo" returnQName="returnqname" returnType="ns6:DataHandler" soapAction="" xmlns:ns6="urn:EchoAttachmentsService">
+   <parameter name="dh" type="ns6:DataHandler"/>
+  </operation>
+  <parameter name="allowedMethods" value="echo echoDir"/>
+  <parameter name="className" value="samples.attachments.EchoAttachmentsService"/>
+  <typeMapping deserializer="org.apache.axis.encoding.ser.JAFDataHandlerDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" qname="ns7:DataHandler" serializer="org.apache.axis.encoding.ser.JAFDataHandlerSerializerFactory" type="java:javax.activation.DataHandler" xmlns:ns7="urn:EchoAttachmentsService"/>
+ </service>
+ <service name="Version" provider="java:RPC">
+  <parameter name="allowedMethods" value="getVersion"/>
+  <parameter name="className" value="org.apache.axis.Version"/>
+ </service>
+ <transport name="http">
+  <requestFlow>
+   <handler type="URLMapper"/>
+   <handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </requestFlow>
+  <parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </transport>
+ <transport name="local">
+  <responseFlow>
+   <handler type="LocalResponder"/>
+  </responseFlow>
+ </transport>
+</deployment>

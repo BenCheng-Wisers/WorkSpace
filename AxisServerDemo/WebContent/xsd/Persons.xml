@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persons xmlns="B" xmlns:a="A" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="Persons.xsd">
+	<person>
+		<a:id>1</a:id>
+		<a:name>test1</a:name>
+	</person>
+	<person>
+		<a:id>3</a:id>
+		<a:name>test2</a:name>
+	</person>
+</persons>

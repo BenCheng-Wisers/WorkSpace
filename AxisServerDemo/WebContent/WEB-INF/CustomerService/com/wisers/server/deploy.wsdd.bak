@@ -1,0 +1,32 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from CustomerService WSDL service -->
+
+  <service name="Customer" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://server.wisers.com"/>
+      <parameter name="wsdlServiceElement" value="CustomerService"/>
+      <parameter name="schemaQualified" value="http://server.wisers.com"/>
+      <parameter name="wsdlServicePort" value="Customer"/>
+      <parameter name="className" value="com.wisers.server.CustomerSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Customer"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="callWaiter" qname="operNS:callWaiter" xmlns:operNS="http://server.wisers.com" returnQName="retNS:callWaiterReturn" xmlns:retNS="http://server.wisers.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:name" xmlns:pns="http://server.wisers.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="cussWaiter" qname="operNS:cussWaiter" xmlns:operNS="http://server.wisers.com" returnQName="retNS:cussWaiterReturn" xmlns:retNS="http://server.wisers.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:name" xmlns:pns="http://server.wisers.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="cussWaiter callWaiter"/>
+
+  </service>
+</deployment>

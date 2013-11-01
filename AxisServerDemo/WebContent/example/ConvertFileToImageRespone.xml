@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<convertFileToImageResponse>
+	<responseFileToImageInfo>
+		<targetImagePath>null</targetImagePath>
+		<targetImageNames>
+			<targetImageName>image-0.png</targetImageName>
+			<targetImageName>image-1.png</targetImageName>
+		</targetImageNames>
+		<isReturnMoreInfo>false</isReturnMoreInfo>
+		<targetImageWidth>200</targetImageWidth>
+		<targetImageHeight>100</targetImageHeight>
+		<targetImageClarity>0</targetImageClarity>
+		<targetImageDensity>100</targetImageDensity>
+		<targetImageQuality>100</targetImageQuality>
+		<errorMessage>asdfasdfsdfs</errorMessage>
+		<errorCode>asdfasdfsdfs</errorCode>
+	</responseFileToImageInfo>
+	<responseFileToImageInfo>
+		<targetImagePath>null</targetImagePath>
+		<targetImageNames>
+			<targetImageName>image-0.png</targetImageName>
+			<targetImageName>image-1.png</targetImageName>
+		</targetImageNames>
+		<isReturnMoreInfo>false</isReturnMoreInfo>
+		<targetImageWidth>200</targetImageWidth>
+		<targetImageHeight>100</targetImageHeight>
+		<targetImageClarity>0</targetImageClarity>
+		<targetImageDensity>100</targetImageDensity>
+		<targetImageQuality>100</targetImageQuality>
+		<errorMessage>asdfasdfsdfs</errorMessage>
+		<errorCode>asdfasdfsdfs</errorCode>
+	</responseFileToImageInfo>
+</convertFileToImageResponse>

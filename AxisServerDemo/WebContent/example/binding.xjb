@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" version="2.1"
+      xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <bindings schemaLocation="Users1.xsd" node="/xs:schema">
+  	<globalBindings
+	          fixedAttributeAsConstantProperty="false"
+	          collectionType="java.util.Vector"
+	          typesafeEnumBase="xs:NCName"
+	          choiceContentProperty="false"
+	          typesafeEnumMemberName="generateError"
+	          enableFailFastCheck="false"   
+	          generateIsSetMethod="false"
+	          underscoreBinding="asCharInWord">
+	          <javaType name="short" 
+	              xmlType="xs:long" 
+	              printMethod="javax.xml.bind.DatatypeConverter.printShort"   
+	              parseMethod="javax.xml.bind.DatatypeConverter.parseShort"/>
+	          <javaType name="java.util.Date" 
+	              xmlType="xs:date" 
+	              printMethod="com.wisers.adapter.DateConverter.printDate"   
+	              parseMethod="com.wisers.adapter.DateConverter.parseDate"/>
+	</globalBindings>
+    <schemaBindings>
+      <package name="com.wisers.jaxb.test">
+      	<javadoc><![CDATA[<body>Package level documentation for generated package primer.myPo.</body>]]></javadoc>
+      </package>
+      <!--
+      <nameXmlTransform>
+        <elementName suffix="Element"/>
+      </nameXmlTransform>
+      -->
+    </schemaBindings>
+    
+    <bindings node="//xs:complexType[@name='addressType']">
+    	<bindings node=".//xs:element[@name='city']">
+    		<property name="city1"/>
+    	</bindings>
+    </bindings>
+    
+  </bindings>
+</bindings>

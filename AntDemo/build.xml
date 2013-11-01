@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ant_demo" default="compile" basedir="." >
+<!--设置下面要用到的属性-->
+ <property name="app.home" value="."/>
+ <property name="app.version" value="v01"/>
+ <property name="app.src" value="${app.home}/src"/>
+ <property name="app.webroot" value="${app.home}/WebContent"/>
+ <property name="web.webinf" value="${app.webroot}/WEB-INF"/>
+ <property name="web.classes" value="${web.webinf}/classes"/>
+ <property name="web.lib" value="${web.webinf}/lib"/>
+ <property name="app.dest" value="${app.home}/build"/>
+ 
+ <!--设置时间截格式化变量，当生成.war 发布文件时要用于定义文件名-->
+ <tstamp prefix="build.">
+   <format property="timeStamp" pattern="yyyyMMddHHmmss"/>
+ </tstamp>
+ 
+<!--设置类包的环境变量-->
+ <path id="compile.classpath">
+  <fileset dir="${web.lib}">
+   <include name="**/*.jar"/>
+   <exclude name="**/*.java"/>
+  </fileset>
+ </path>
+ 
+<!--初始化目录-->
+ <target name="init">
+  <mkdir dir="${app.webroot}"/>
+  <mkdir dir="${web.classes}"/>
+  <mkdir dir="${web.lib}"/>
+ </target>
+ 
+<!--执行编译JAVA文件-->
+ <target name="compile" depends="init">
+  <javac srcdir="${app.src}" destdir="${web.classes}">
+   <classpath refid="compile.classpath"/>
+  </javac>
+ </target>
+ 
+<!--清理并重新执行编译JAVA文件-->
+ <target name="clean">
+  <delete dir="${web.classes}"/>
+  <mkdir dir="${web.classes}"/>
+  <javac srcdir="${app.src}" destdir="${web.classes}">
+   <classpath refid="compile.classpath"/>
+  </javac>
+ </target>
+ 
+<!--打包WEB发布文件-->
+ <target name="war" depends="compile">
+  <war compress ="true" destfile="${app.dest}/${ant.project.name}_${build.timeStamp}_${app.version}.war" webxml="${web.webinf}/web.xml">
+   <fileset dir="${app.webroot}">
+    <exclude name="**/*.vss"/>
+   </fileset>
+  </war>
+ </target>
+
+</project>

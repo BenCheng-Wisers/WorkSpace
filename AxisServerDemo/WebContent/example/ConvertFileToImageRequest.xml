@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<convertFileToImageRequest>
+	<requestFileToImageInfo>
+		<originFilePath>null</originFilePath>
+		<originFileName>pdf</originFileName>
+		<targetImagePath>null</targetImagePath>
+		<targetImageName>img</targetImageName>
+		<targetImageClarity>0</targetImageClarity>
+		<targetImageWidth>200</targetImageWidth>
+		<targetImageHeight>100</targetImageHeight>
+		<targetImageDensity>100</targetImageDensity>
+		<targetImageQuality>100</targetImageQuality>
+		<targetImageCopyRight>false</targetImageCopyRight>
+		<isReturnMoreInfo>false</isReturnMoreInfo>
+	</requestFileToImageInfo>
+	<requestFileToImageInfo>
+		<originFilePath>null</originFilePath>
+		<originFileName>pdf</originFileName>
+		<targetImagePath>null</targetImagePath>
+		<targetImageName>img</targetImageName>
+		<targetImageClarity>0</targetImageClarity>
+		<targetImageWidth>200</targetImageWidth>
+		<targetImageHeight>100</targetImageHeight>
+		<targetImageDensity>100</targetImageDensity>
+		<targetImageQuality>100</targetImageQuality>
+		<targetImageCopyRight>false</targetImageCopyRight>
+		<isReturnMoreInfo>false</isReturnMoreInfo>
+	</requestFileToImageInfo>
+</convertFileToImageRequest>

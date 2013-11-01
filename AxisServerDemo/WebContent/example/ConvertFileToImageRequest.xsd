@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="convertFileToImageRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="requestFileToImageInfo"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="requestFileToImageInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="originFilePath"/>
+        <xs:element ref="originFileName"/>
+        <xs:element ref="targetImagePath"/>
+        <xs:element ref="targetImageName"/>
+        <xs:element ref="targetImageClarity"/>
+        <xs:element ref="targetImageWidth"/>
+        <xs:element ref="targetImageHeight"/>
+        <xs:element ref="targetImageDensity"/>
+        <xs:element ref="targetImageQuality"/>
+        <xs:element ref="targetImageCopyRight"/>
+        <xs:element ref="isReturnMoreInfo"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="originFilePath" type="xs:NCName"/>
+  <xs:element name="originFileName" type="xs:NCName"/>
+  <xs:element name="targetImageCopyRight" type="xs:boolean"/>
+  <xs:element name="convertFileToImageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="responseFileToImageInfo"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="responseFileToImageInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="targetImagePath"/>
+        <xs:element ref="targetImageNames"/>
+        <xs:element ref="isReturnMoreInfo"/>
+        <xs:element ref="targetImageWidth"/>
+        <xs:element ref="targetImageHeight"/>
+        <xs:element ref="targetImageClarity"/>
+        <xs:element ref="targetImageDensity"/>
+        <xs:element ref="targetImageQuality"/>
+        <xs:element ref="errorMessage"/>
+        <xs:element ref="errorCode"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="targetImageNames">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="targetImageName"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="errorMessage" type="xs:NCName"/>
+  <xs:element name="errorCode" type="xs:NCName"/>
+  <xs:element name="targetImagePath" type="xs:NCName"/>
+  <xs:element name="targetImageName" type="xs:NCName"/>
+  <xs:element name="isReturnMoreInfo" type="xs:boolean"/>
+  <xs:element name="targetImageWidth" type="xs:integer"/>
+  <xs:element name="targetImageHeight" type="xs:integer"/>
+  <xs:element name="targetImageClarity" type="xs:integer"/>
+  <xs:element name="targetImageDensity" type="xs:integer"/>
+  <xs:element name="targetImageQuality" type="xs:integer"/>
+</xs:schema>

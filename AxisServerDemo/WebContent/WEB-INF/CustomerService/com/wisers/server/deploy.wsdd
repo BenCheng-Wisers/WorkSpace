@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from CustomerService WSDL service -->
+
+  <service name="Customer" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://server.wisers.com"/>
+      <parameter name="wsdlServiceElement" value="CustomerService"/>
+      <parameter name="schemaQualified" value="http://server.wisers.com"/>
+      <parameter name="wsdlServicePort" value="Customer"/>
+      <parameter name="className" value="com.wisers.server.Customer"/>
+      <parameter name="wsdlPortType" value="Customer"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://server.wisers.com" xmlns:retNS="http://server.wisers.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="callWaiter" qname="operNS:callWaiter" returnQName="retNS:callWaiterReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://server.wisers.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:name" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://server.wisers.com" xmlns:retNS="http://server.wisers.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="cussWaiter" qname="operNS:cussWaiter" returnQName="retNS:cussWaiterReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://server.wisers.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:name" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="cussWaiter callWaiter"/>
+
+  </service>
+</deployment>

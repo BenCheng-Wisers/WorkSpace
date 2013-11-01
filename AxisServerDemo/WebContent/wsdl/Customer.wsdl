@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://server.wisers.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://server.wisers.com" xmlns:intf="http://server.wisers.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://server.wisers.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="callWaiter">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="callWaiterResponse">
+    <complexType>
+     <sequence>
+      <element name="callWaiterReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="cussWaiter">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="cussWaiterResponse">
+    <complexType>
+     <sequence>
+      <element name="cussWaiterReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="cussWaiterRequest">
+
+      <wsdl:part element="impl:cussWaiter" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="callWaiterRequest">
+
+      <wsdl:part element="impl:callWaiter" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="cussWaiterResponse">
+
+      <wsdl:part element="impl:cussWaiterResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="callWaiterResponse">
+
+      <wsdl:part element="impl:callWaiterResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Customer">
+
+      <wsdl:operation name="callWaiter">
+
+         <wsdl:input message="impl:callWaiterRequest" name="callWaiterRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:callWaiterResponse" name="callWaiterResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="cussWaiter">
+
+         <wsdl:input message="impl:cussWaiterRequest" name="cussWaiterRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:cussWaiterResponse" name="cussWaiterResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="CustomerSoapBinding" type="impl:Customer">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="callWaiter">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="callWaiterRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="callWaiterResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="cussWaiter">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="cussWaiterRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="cussWaiterResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CustomerService">
+
+      <wsdl:port binding="impl:CustomerSoapBinding" name="Customer">
+
+         <wsdlsoap:address location="http://localhost:9090/AxisServerDemo/services/Customer"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

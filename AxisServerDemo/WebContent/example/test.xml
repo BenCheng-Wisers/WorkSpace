@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tests>
+	<test>
+		<id>1</id>
+		<name>test1</name>
+	</test>
+	<test>
+		<id>2</id>
+		<name>test2</name>
+	</test>
+</tests>
