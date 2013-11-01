@@ -6,6 +6,6 @@
 </head>
 <BODY>
 	<CENTER>
-	index page master1
+	index page master1 master2
 	</CENTER>
 </BODY>
